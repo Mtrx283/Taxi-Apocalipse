@@ -21,7 +21,7 @@ public class UseOfThePump : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Bomb"))
+        if (other.CompareTag("Skill"))
         {
             exploded = true;
 
