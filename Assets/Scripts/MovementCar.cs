@@ -8,13 +8,14 @@ public class MovementCar : MonoBehaviour
     [SerializeField] private float reverseAcceleration = 6f; 
     [SerializeField] private float maxSpeed = 20f; 
     [SerializeField] private float maxReverseSpeed = 8f; 
-    [SerializeField] private float turnSpeed = 50f;    
+    [SerializeField] private float turnSpeed = 50f;  
 
     private Rigidbody rb;
     private WheelCollider[] wheels;
     private Vector2 input;
 
     private float currentSpeed = 0f;
+    private float speedMultiplier = 1f; // NEW: Speed multiplier for puddles
     public bool isDashing = false;
 
     void Start()
@@ -26,7 +27,9 @@ public class MovementCar : MonoBehaviour
 
     void Update()
     {
-        currentSpeed = Mathf.MoveTowards(currentSpeed, input.y * acceleration * 10, Time.deltaTime * 1000);
+        // Apply speed multiplier to target speed
+        float targetSpeed = input.y * acceleration * 10 * speedMultiplier;
+        currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, Time.deltaTime * 1000);
 
         foreach (var wheel in wheels)
             wheel.rotationSpeed = currentSpeed * 100;
@@ -38,7 +41,6 @@ public class MovementCar : MonoBehaviour
     public void setMoveSpeed(float newSpeedAdjustment)
     {
         rb.AddForce(transform.forward * newSpeedAdjustment * 100, ForceMode.Impulse);
-        //maxSpeed += newSpeedAdjustment;
     }
 
     private void OnMove(InputValue value)
@@ -60,5 +62,19 @@ public class MovementCar : MonoBehaviour
             Debug.Log("Zombie destruido!");
         }
     }
-}
 
+    // NEW METHOD: Apply speed multiplier instead of drag
+    public void ApplySpeedMultiplier(bool state, float multiplier)
+    {
+        if (state)
+        {
+            speedMultiplier = multiplier;
+        }
+        else
+        {
+            speedMultiplier = 1f;
+        }
+        
+        Debug.Log("Speed multiplier set to: " + speedMultiplier); // Debug line
+    }
+}
