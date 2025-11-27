@@ -2,13 +2,20 @@ using UnityEngine;
 
 public class PuddleSlow : MonoBehaviour
 {
-    [SerializeField] private float speedMultiplier = 0.5f;
+    [SerializeField] private float speedMultiplier = 0.01f;
+    [SerializeField] private float puddleLifetime = 30f; 
+
+    private void Start()
+    {
+        
+        Destroy(gameObject, puddleLifetime);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger entered by: " + other.gameObject.name + " (Tag: " + other.tag + ")");
         
-        // Check the colliding object AND its parents for the Player tag
+        
         MovementCar car = other.GetComponentInParent<MovementCar>();
         
         if (car != null)
@@ -22,7 +29,7 @@ public class PuddleSlow : MonoBehaviour
     {
         Debug.Log("Trigger exited by: " + other.gameObject.name);
         
-        // Check the colliding object AND its parents
+        
         MovementCar car = other.GetComponentInParent<MovementCar>();
         
         if (car != null)
