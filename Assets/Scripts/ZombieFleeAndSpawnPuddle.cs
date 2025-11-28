@@ -12,10 +12,10 @@ public class ZombieFleeAndSpawnPuddle : MonoBehaviour
     
     [Header("Puddle Settings")]
     [SerializeField] private GameObject puddlePrefab; 
-    [SerializeField] private Vector3 puddleSpawnOffset = new Vector3(0, 0.1f, 0); 
+    [SerializeField] private Vector3 puddleSpawnOffset = new Vector3(0, 0.2f, 0); 
 
     private Transform player;
-    private Rigidbody rb;
+    //private Rigidbody rb;
 
     void Start()
     {
@@ -25,7 +25,7 @@ public class ZombieFleeAndSpawnPuddle : MonoBehaviour
             player = playerObject.transform;
         }
 
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -58,7 +58,6 @@ public class ZombieFleeAndSpawnPuddle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Add score
             ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
             if (scoreManager != null)
             {

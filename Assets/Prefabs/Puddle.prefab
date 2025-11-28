@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3463171046456077176}
   - component: {fileID: 8836494625383953628}
   - component: {fileID: 601109334092668632}
-  - component: {fileID: 6871616971307397721}
   m_Layer: 0
   m_Name: Puddle
   m_TagString: Untagged
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3403405352292923668}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.83, y: -0.01, z: -45.79}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 11.219626, y: 0.27202496, z: 15.276644}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -124,31 +123,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5b7b689fed1c847b18f8d3c8270e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 0.0001
---- !u!54 &6871616971307397721
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3403405352292923668}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  speedMultiplier: 0.001
+  puddleLifetime: 30
