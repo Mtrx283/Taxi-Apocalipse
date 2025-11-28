@@ -12,6 +12,7 @@ public class SkillHandler : MonoBehaviour
     private void OnJump()
     {
         skill?.ActivateSkill(car);
+        skill = null;
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -27,22 +27,4 @@ public class ScoreManager : MonoBehaviour
             scoreText.text = " " + score;
     }
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Score2x"))
-        {
-            isDoubleScoreActive = true;
-
-            Debug.Log("Double Score Activated!");
-            StartCoroutine(ResetScoreMultiplierAfterDelay());
-        }
-    }
-
-    IEnumerator ResetScoreMultiplierAfterDelay()
-    {
-        yield return new WaitForSeconds(20f);
-        isDoubleScoreActive = false;
-        Debug.Log("Double Score Deactivated!");
-    }
 }

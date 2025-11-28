@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 82799134861664447}
   - component: {fileID: 5175603754459907470}
   - component: {fileID: 4800404375341629676}
-  - component: {fileID: 6806832854383524511}
+  - component: {fileID: 1906172852556717772}
   m_Layer: 0
   m_Name: Item 3
-  m_TagString: Bomb
+  m_TagString: Skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6806832854383524511
+--- !u!114 &1906172852556717772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,6 +118,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6625814957132738708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa9cef9667ba0f449a9ac0e8307993e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 269609e1e626f8c40861d03050cd4057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
