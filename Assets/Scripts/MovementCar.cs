@@ -15,7 +15,7 @@ public class MovementCar : MonoBehaviour
     private Vector2 input;
 
     private float currentSpeed = 0f;
-    private float speedMultiplier = 1f; // NEW: Speed multiplier for puddles
+    private float speedMultiplier = 1f; 
     public bool isDashing = false;
 
     void Start()
@@ -27,7 +27,7 @@ public class MovementCar : MonoBehaviour
 
     void Update()
     {
-        // Apply speed multiplier to target speed
+       
         float targetSpeed = input.y * acceleration * 10 * speedMultiplier;
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, Time.deltaTime * 1000);
 
@@ -63,7 +63,7 @@ public class MovementCar : MonoBehaviour
         }
     }
 
-    // NEW METHOD: Apply speed multiplier instead of drag
+   
     public void ApplySpeedMultiplier(bool state, float multiplier)
     {
         if (state)
@@ -75,6 +75,11 @@ public class MovementCar : MonoBehaviour
             speedMultiplier = 1f;
         }
         
-        Debug.Log("Speed multiplier set to: " + speedMultiplier); // Debug line
+        Debug.Log("Speed multiplier set to: " + speedMultiplier); 
+    }
+
+    public void ClampVelocity(float speed)
+    {
+        rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, speed);
     }
 }

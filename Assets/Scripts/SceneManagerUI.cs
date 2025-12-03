@@ -2,66 +2,34 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class SceneManagerUI : MonoBehaviour {
+public class SceneManagerUI : MonoBehaviour 
+{
 
-    [SerializeField] private string mainMenuSceneName = "MainMenuScene";
-    [SerializeField] private string gameplaySceneName = "Nivel1_whiteblocking";
-    [SerializeField] private string gameOverSceneName = "Game Over";
-    [SerializeField] private string victorySceneName = "Victory";
-    [SerializeField] private string finalVictorySceneName = "FinalVictory";
-    private static int lastSceneBuildIndex;
-    private static string lastSceneName;
+    private static int currentLevel;
 
-    private void SaveLastSceneName()
+    private readonly string[] levelScenes = new string[]
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        lastSceneBuildIndex = currentScene.buildIndex;
-        lastSceneName = currentScene.name;
-    }
+        "Nivel1_whiteblocking", "Nivel2_TEST", "Nivel3_TEST"
+    };
 
     public void GoToMainMenuScreen()
     {
-        SceneManager.LoadScene(mainMenuSceneName);
+        currentLevel = 0;
+        SceneManager.LoadScene("MainMenuScene");
     }
 
-    public void GoToStartGame()
-    {
-        SceneManager.LoadScene(gameplaySceneName);
-    }
-
-    public void GoToGameOverScreen()
-    {
-        SaveLastSceneName();
-        SceneManager.LoadScene(gameOverSceneName);
-    }
-
-    public void GoToVictoryScreen()
-    {
-        SaveLastSceneName();
-
-        if (lastSceneBuildIndex == 3)
-        {
-            SceneManager.LoadScene(finalVictorySceneName);
-        }
-        else
-        {
-            SceneManager.LoadScene(victorySceneName);
-        }
-    }
-
+    public void GoToStartGame() => SceneManager.LoadScene(levelScenes[0]);
+    public void GoToGameOverScreen() => SceneManager.LoadScene("Game Over");
+    public void GoToVictoryScreen() => SceneManager.LoadScene(currentLevel >= levelScenes.Length - 1 ? "FinalVictory" : "Victory");
     public void GoToNextLevel()
     {
-        SceneManager.LoadScene(lastSceneBuildIndex + 1);
+        currentLevel++;
+        SceneManager.LoadScene(levelScenes[currentLevel]);
     }
 
-    public void GoToRetryLevel()
-    {
-        SceneManager.LoadScene(lastSceneName);
-    }
 
-    public void GoToExitGame()
-    {
-        Application.Quit();
-    }
+    public void GoToRetryLevel() => SceneManager.LoadScene(levelScenes[currentLevel]);
+    public void GoToExitGame() => Application.Quit();
+    
 
 }

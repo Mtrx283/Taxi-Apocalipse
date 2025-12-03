@@ -13,29 +13,14 @@ public class PuddleSlow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger entered by: " + other.gameObject.name + " (Tag: " + other.tag + ")");
-        
         
         MovementCar car = other.GetComponentInParent<MovementCar>();
         
         if (car != null)
         {
-            car.ApplySpeedMultiplier(true, speedMultiplier);
-            Debug.Log("Slow applied to: " + car.gameObject.name);
+            car.ClampVelocity(3);
+            
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log("Trigger exited by: " + other.gameObject.name);
-        
-        
-        MovementCar car = other.GetComponentInParent<MovementCar>();
-        
-        if (car != null)
-        {
-            car.ApplySpeedMultiplier(false, speedMultiplier);
-            Debug.Log("Slow removed from: " + car.gameObject.name);
-        }
-    }
 }
