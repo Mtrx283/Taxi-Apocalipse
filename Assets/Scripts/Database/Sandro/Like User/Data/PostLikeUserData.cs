@@ -1,7 +1,8 @@
 using System;
+using System.Collections.Generic;
 
 [Serializable]
 public class PostLikeUserData
 {
-    public PostLikeUserDataModel[] data;
+    public List<PostLikeUserDataModel> data;
 }

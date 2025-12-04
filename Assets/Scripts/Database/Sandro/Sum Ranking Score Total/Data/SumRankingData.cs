@@ -1,7 +1,8 @@
 using System;
+using System.Collections.Generic;
 
 [Serializable]
 public class SumRankingData
 {
-    public SumRankingDataModel[] data;
+    public List<SumRankingDataModel> data;
 }

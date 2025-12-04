@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -7,12 +8,12 @@ public class PostLikeUserController : MonoBehaviour
 {
     private const string url = "http://localhost/php/taxi_apocalipsis/piero/post_like_user.php";
 
-    public void Post(string username, Action<PostLikeUserDataModel[]> callback)
+    public void Post(string username, Action<List<PostLikeUserDataModel>> callback)
     {
         StartCoroutine(PostLikeUser(username, callback));
     }
 
-    private IEnumerator PostLikeUser(string username, Action<PostLikeUserDataModel[]> callback)
+    private IEnumerator PostLikeUser(string username, Action< List<PostLikeUserDataModel>> callback)
     {
         WWWForm form = new WWWForm();
         form.AddField("username", username);

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -7,19 +8,19 @@ public class GetRankingScoreTotalController : MonoBehaviour
 {
     private const string url = "http://localhost/php/taxi_apocalipsis/piero/get_ranking_score_total.php";
 
-    public void Get(Action<SumRankingDataModel[]> callback)
+    public void Get(Action<List<SumRankingDataModel>> callback)
     {
         StartCoroutine(GetRankingScoreTotal(callback));
     }
 
-    private IEnumerator GetRankingScoreTotal(Action<SumRankingDataModel[]> callback)
+    private IEnumerator GetRankingScoreTotal(Action< List<SumRankingDataModel>> callback)
     {
         using(UnityWebRequest www = UnityWebRequest.Get(url))
         {
             yield return www.SendWebRequest();
-            if(www.downloadHandler.text == "The ranking is empty")
+            if (www.downloadHandler.text == "There are no results")
             {
-                Debug.Log("The ranking is empty");
+                Debug.Log("There are no results");
             }
             else if(www.result == UnityWebRequest.Result.Success)
             {

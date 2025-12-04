@@ -1,5 +1,7 @@
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -17,7 +19,7 @@ public class GetAvgView : MonoBehaviour
         MenuButton.onClick.AddListener(MenuScene);
     }
 
-    private void ShowData(AvgDataModel[] avgDataModels)
+    private void ShowData(List<AvgDataModel> avgDataModels)
     {
 
 

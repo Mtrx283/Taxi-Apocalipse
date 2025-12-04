@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,25 +22,39 @@ public class PostLikeUserView : MonoBehaviour
 
     private void LikeButton()
     {
-        controller.Post(usernameInputField.text, ShowData);
+        string trimmedInput = usernameInputField.text.Trim(); //Recortar espacios en blanco
+
+        if (string.IsNullOrEmpty(trimmedInput)) // Verificar si el campo esta vacio
+        {
+            Debug.Log("Miskete");
+        }
+
+        else
+        {
+            controller.Post(usernameInputField.text, ShowData);
+        }
+
 
     }
-    private void ShowData(PostLikeUserDataModel[] postLikes)
+    private void ShowData( List <PostLikeUserDataModel> postLikes)
     {
-        foreach (Transform t in container.GetComponentInChildren<Transform>())
+
+        foreach (Transform t in container.GetComponentInChildren<Transform>()) //Eliminar los hijos anteriores
         {
-            if (t != container.transform)
+           if (t != container.transform) // Evitar eliminar el contenedor
             {
                 Destroy(t.gameObject);
-            }
+           }
 
         }
 
-        foreach (PostLikeUserDataModel postLikeUser in postLikes)
+        foreach (PostLikeUserDataModel postLikeUser in postLikes) // Crear nuevos elementos para cada usuario
         {
-            GameObject instance = Instantiate(prefab, container);
-            instance.GetComponent<UserContaner>().SetUp(postLikeUser.name);
+           GameObject instance = Instantiate(prefab, container);
+           instance.GetComponent<UserContaner>().SetUp(postLikeUser.name);
         }
+
+
     }
 
     private void MenuScene()

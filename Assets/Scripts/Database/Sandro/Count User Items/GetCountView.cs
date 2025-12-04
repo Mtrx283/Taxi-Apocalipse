@@ -1,4 +1,4 @@
-using TMPro;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,7 +19,7 @@ public class GetCountView : MonoBehaviour
         menuButton.onClick.AddListener(MenuScene);
     }
 
-    private void ShowData(CountDataModel[] countDataModels)
+    private void ShowData(List<CountDataModel> countDataModels)
     {
         foreach (Transform t in container.GetComponentInChildren<Transform>())
         {

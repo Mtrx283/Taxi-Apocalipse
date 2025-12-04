@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -7,12 +8,12 @@ public class GetCountController : MonoBehaviour
 {
     private const string url = "http://localhost/php/taxi_apocalipsis/piero/get_count_item_user.php";
 
-    public void Get(Action<CountDataModel[]> callback)
+    public void Get(Action< List <CountDataModel>> callback)
     {
         StartCoroutine(GetCountTotalQuantity(callback));
     }
 
-    private IEnumerator GetCountTotalQuantity(Action<CountDataModel[]> callback)
+    private IEnumerator GetCountTotalQuantity(Action<List<CountDataModel>> callback)
     {
         using(UnityWebRequest www = UnityWebRequest.Get(url))
         {

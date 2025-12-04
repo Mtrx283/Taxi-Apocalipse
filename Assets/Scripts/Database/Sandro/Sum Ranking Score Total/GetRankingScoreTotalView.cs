@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ public class GetRankingScoreTotalView : MonoBehaviour
         menuButton.onClick.AddListener(MenuScene);
     }
 
-    private void ShowData(SumRankingDataModel[] sumRankingDataModels)
+    private void ShowData( List <SumRankingDataModel> sumRankingDataModels)
     {
         foreach (Transform t in container.GetComponentInChildren<Transform>())
         {

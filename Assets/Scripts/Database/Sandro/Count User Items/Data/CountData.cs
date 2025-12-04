@@ -1,7 +1,8 @@
+using System.Collections.Generic;
 using System;
 
 [Serializable]
 public class CountData
 {
-    public CountDataModel[] data;
+    public List <CountDataModel> data;
 }

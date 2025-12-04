@@ -22,8 +22,8 @@ public class Chronometer : MonoBehaviour
             time -= Time.deltaTime;
             int minutes = Mathf.FloorToInt(time / 60);
             int seconds = Mathf.FloorToInt(time % 60);
-            int milliseconds = Mathf.FloorToInt((time * 1000f) % 1000);
-            chronometerText.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
+            int timeTenthsOfASecond = Mathf.FloorToInt((time % 1) * 100);
+            chronometerText.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, timeTenthsOfASecond);
         }
 
 
