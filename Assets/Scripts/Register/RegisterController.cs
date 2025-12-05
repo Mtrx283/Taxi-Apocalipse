@@ -4,7 +4,7 @@ using System.Collections;
 
 public class RegisterController : MonoBehaviour
 {
-    private const string url= "http://localhost/Progra2025/Projecto2025/insert_user.php";
+    [SerializeField] private string url= "http://localhost/Progra2025/Projecto2025/insert_user.php";
     
     public void Register(string name, string password)
     {

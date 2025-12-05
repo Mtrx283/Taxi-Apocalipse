@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Log_inController : MonoBehaviour
 {
-    private const string url = "http://localhost/Progra2025/Projecto2025/get_user.php";
+    [SerializeField] private string url = "http://localhost/Progra2025/Projecto2025/get_user.php";
 
     public void Log_in(string name, string password)
     {
