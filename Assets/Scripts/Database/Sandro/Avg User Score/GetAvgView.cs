@@ -11,12 +11,12 @@ public class GetAvgView : MonoBehaviour
 
     [SerializeField] private GameObject prefab;
     [SerializeField] private Transform container;
-    [SerializeField] private Button MenuButton;
+    [SerializeField] private Button menuButton;
     void Awake()
     {
         getAvgController = GetComponent<GetAvgController>();
         getAvgController.Get(ShowData);
-        MenuButton.onClick.AddListener(MenuScene);
+        menuButton.onClick.AddListener(MenuScene);
     }
 
     private void ShowData(List<AvgDataModel> avgDataModels)
