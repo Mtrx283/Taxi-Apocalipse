@@ -5,7 +5,7 @@ public class Chronometer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI chronometerText;
     public float time;
-    public bool gameOver = false;
+    private bool gameOver;
     private SceneManagerUI sceneManager;
 
     private void Start()

@@ -16948,7 +16948,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chronometerText: {fileID: 1505582671}
   time: 100
-  gameOver: 0
 --- !u!1001 &1233599664
 PrefabInstance:
   m_ObjectHideFlags: 0
